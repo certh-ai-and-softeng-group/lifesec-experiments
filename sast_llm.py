@@ -62,7 +62,7 @@ root_path = os.getcwd()
 project = "bigvul" # bigvul  devign  reveal
 
 if project == "bigvul":
-    test_data = pd.read_csv('bigvul_test_sast.csv')
+    test_data = pd.read_csv('bigvul_updated_with_cpp_target.csv')
     checkpoint_dir = './checkpoints'
     seed_index = 9
 
@@ -325,7 +325,7 @@ print("F1-score=",f1_sast * 100)
 # In[76]:
 
 
-test_data.to_csv('test_data_bigvul.csv', index=False)
+test_data.to_csv('filtered_bigvul_results.csv', index=False)
 
 
 # In[ ]:
