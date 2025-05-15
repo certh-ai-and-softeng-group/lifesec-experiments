@@ -53,13 +53,24 @@ python csv_maker_from_sast.py
 ```
 ### 6. Run the Vulnerability Prediction analysis using LLM 
 
+This script return the evaluation results.
+
+Download and extract the fine-tuned VP model:
+
+https://mega.nz/file/IGU2GZbB#Wa3-KsP0AB0CozZbWAAwmzl-hk5cLBael2ILRR_1EJE
+
+and then run the script:
+
 ```python
 python sast_llm.py 
 ```
+More information about the extraction of the model can be found here:
+
+https://github.com/iliaskaloup/vulGpt 
 
 ### 7. Output
 
-The final output is `results.csv`, which contains the results of both SonarQube and Vulnerabilty Prediction analysis. This CSV serves as the basis for our evaluation.
+The final output is `filtered_bigvul_results.csv`, which contains the results of both SonarQube and Vulnerabilty Prediction analysis.
 
 ## License
 
