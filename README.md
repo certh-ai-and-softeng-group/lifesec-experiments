@@ -1,6 +1,6 @@
 # LIFESEC 2025 Experiments
 
-This repository documents the experimental setup and process used for our submission to the LIFESEC 2025 Conference. The goal of the experiment is to assess vulnerabilities in C functions from the BigVul dataset using SonarQube static analysis.
+This repository documents the experimental setup and process used for our submission to the LIFESEC 2025 Conference.
 
 ## Steps
 
@@ -16,24 +16,17 @@ Make sure SonarQube is up and running at [http://localhost:9000](http://localhos
 
 ### 2. Download the BigVul Dataset
 
-You can download the dataset from Hugging Face:
-
-[https://huggingface.co/datasets/bstee615/bigvul](https://huggingface.co/datasets/bstee615/bigvul)
-
-Use the `datasets` library to download it in Python:
-
-```python
-from datasets import load_dataset
-
-dataset = load_dataset("bstee615/bigvul")
+You can download the dataset here:
+```bash
+gdown https://drive.google.com/uc?id=1h0iFJbc5DGXCXXvvR6dru_Dms_b2zW4V
 ```
 
 ### 3. Convert Functions of the BigVul Dataset to C Files
 
-Transform each function from the dataset into an individual `.c` file and store them in a dedicated folder:
+Transform each function from the dataset into an individual `.c` file and store them in a dedicated folder (to facilitate the analysis through SonarQube):
 
 ```bash
-python scripts/convert_to_c_files.py --input bigvul --output c_functions
+python convert_to_c_files.py --input bigvul --output c_functions
 ```
 
 > Ensure the script extracts and writes each function as a valid C file.
@@ -53,9 +46,20 @@ sonar-scanner   -Dsonar.projectKey=bigvul-analysis   -Dsonar.sources=./c_functio
 Use the provided `fetch_issues.py` script to extract the results from the SonarQube instance.
 This will generate a CSV file containing all identified issues from the SonarQube analysis.
 
-### 6. Output
+### 6. Marge the SonarQube results to the BigVul dataset
 
-The final output is `results.csv`, which contains the SonarQube-reported issues for each function analyzed. This CSV serves as the primary dataset for further analysis or evaluation.
+```python
+python csv_maker_from_sast.py
+```
+### 6. Run the Vulnerability Prediction analysis using LLM 
+
+```python
+python sast_llm.py 
+```
+
+### 7. Output
+
+The final output is `results.csv`, which contains the results of both SonarQube and Vulnerabilty Prediction analysis. This CSV serves as the basis for our evaluation.
 
 ## License
 
