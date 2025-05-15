@@ -1,6 +1,10 @@
 # LIFESEC 2025 Experiments
 
-This repository documents the experimental setup and process used for our submission to the LIFESEC 2025 Conference.
+This repository documents the experimental setup and process used for our submission to the SmartComp/LIFESEC 2025 Conference:
+
+### Replication Package of "AI-Enhanced Static Analysis: Reducing False Alarms Using Large Language Models"
+
+To replicate the analysis and reproduce the results follow the steps below:
 
 ## Steps
 
@@ -72,6 +76,19 @@ https://github.com/iliaskaloup/vulGpt
 
 The final output is `filtered_bigvul_results.csv`, which contains the results of both SonarQube and Vulnerabilty Prediction analysis.
 
+## Acknowledgements
+
+Special thanks to the paper entitled "A C/C++ Code Vulnerability Dataset with Code Changes and CVE Summaries" for providing the Big-Vul dataset, which was utilized as the basis for our analysis. If you use Big-Vul, please cite:
+
+~~~
+J. Fan, Y. Li, S. Wang and T. N. Nguyen, "A C/C++ Code Vulnerability Dataset with Code Changes and CVE Summaries," 2020 IEEE/ACM 17th International Conference on Mining Software Repositories (MSR), Seoul, Korea, Republic of, 2020, pp. 508-512, doi: 10.1145/3379597.3387501
+~~~
+
+
 ## License
 
 This project is licensed under the MIT License.
+
+## Citation
+
+Apostolidis, G., Kalouptsoglou, I., Siavvas, M., Kehagias, D., & Tzovaras, D. AI-Enhanced Static Analysis: Reducing False Alarms Using Large Language Models. In 11th IEEE International Conference on Smart Computing, Ireland, 2025
